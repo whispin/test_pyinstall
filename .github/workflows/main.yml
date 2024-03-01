@@ -7,18 +7,18 @@ on:
   watch:
     types: [started]
 jobs:
-  build:
-    runs-on: ubuntu-latest
+  build_windows:
+    runs-on: windows-latest
     steps:
-      - uses: actions/checkout@v3
-      - name: Install requirements
-        run: |
-          pip3 install -r ./requirements.txt
-      - name: Create Executable
-        uses: sayyid5416/pyinstaller@v1
+      - uses: actions/checkout@v2
+      - name: Build Python Exe
+        uses: eric2788/pyinstaller-build@master
         with:
-          python_ver: '3.9.18'
-          spec: 'main.py'
-          requirements: 'requirements.txt'
-          upload_exe_with_name: 'python_exe'
-          options: --onefile, --name "python_main_py", --windowed,
+          main: main
+          artifact: Program
+          use-dependencies: false
+      - name: Upload Artifact
+        uses: actions/upload-artifact@v2
+        with:
+          name: python_exe
+          path: dist
