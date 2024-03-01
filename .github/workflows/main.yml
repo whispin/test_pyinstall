@@ -19,7 +19,7 @@ jobs:
         with:
           main: main
           artifact: Program
-          use-dependencies: true
+          use-dependencies: false
           python_version: 3.12.2
           pyinstaller_version: 5.13.0
       - name: Upload Artifact
