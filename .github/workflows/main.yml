@@ -20,6 +20,7 @@ jobs:
           main: main
           artifact: Program
           use-dependencies: true
+          python_version: 3.12.2
       - name: Upload Artifact
         uses: actions/upload-artifact@v2
         with:
