@@ -34,3 +34,4 @@ if __name__ == "__main__":
         logger.info("Program interrupted by the user")
     finally:
         logger.info("Exiting the program")
+        input("Press Enter to exit...")
